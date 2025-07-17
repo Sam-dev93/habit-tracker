@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="⏱️ Habits">
+    <meta name="theme-color" content="#181818">
+    <meta name="viewport-fit" content="cover">
+    <title>⏱️ Habit Tracker</title>
+    
+    <!-- PWA Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAABHNCSVQICAgIfAhkiAAAA6NJREFUeJzt3UFOwzAQBdDGKE0TGlG1qqCCyqkKZ+hJ4Aw9ASdhJSG1QKOqTdMQO2LhPyGk75k9tmfGM2NnZhwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWDrOzMjMzMj8/Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+PhqKR8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx+vl/Lx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH7+X8vHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/1fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+X8fAAAAADf0xhGUH3/0AAAAASUVORK5CYII=">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+    
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #181818;
+            min-height: 100vh;
+            color: #E6E6E6;
+            margin: 0;
+            padding: 0;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        .container {
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: #181818;
+            overflow: hidden;
+            padding-top: 15px;
+        }
+
+        .header {
+            padding: 15px 20px 20px 20px;
+            text-align: center;
+        }
+
+        .app-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #F5F5F5;
+        }
+
+        .current-date {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B8B8B8;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 8px;
+            margin: 12px 12px 20px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background: #1F1F1F;
+            padding: 16px;
+            border-radius: 14px;
+            border: 1px solid #2E2E2E;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: #2A2A2A;
+        }
+
+        .stat-card.complete {
+            border-color: #10A37F;
+        }
+
+        .stat-card.partial {
+            border-color: #FF8C00;
+        }
+
+        .stat-card.failed {
+            border-color: #FF4444;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-card.complete .stat-number {
+            color: #10A37F;
+        }
+
+        .stat-card.partial .stat-number {
+            color: #FF8C00;
+        }
+
+        .stat-card.failed .stat-number {
+            color: #FF4444;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #B8B8B8;
+            font-weight: 600;
+        }
+
+        .today-habits {
+            margin: 20px 12px 15px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #F5F5F5;
+            margin-bottom: 12px;
+            padding-left: 5px;
+            text-align: center;
+        }
+
+        .habit-container {
+            background: #1F1F1F;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #2E2E2E;
+        }
+
+        .habit-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 18px;
+            border-bottom: 1px solid #2E2E2E;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .habit-row:last-child {
+            border-bottom: none;
+        }
+
+        .habit-row:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .habit-row.complete {
+            background: linear-gradient(135deg, #10A37F, #0D8B6F);
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .habit-row.partial {
+            background: linear-gradient(135deg, #FF8C00, #E67300);
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .habit-row.failed {
+            background: linear-gradient(135deg, #FF4444, #CC3333);
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .habit-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .habit-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .habit-row.complete .habit-icon,
+        .habit-row.partial .habit-icon,
+        .habit-row.failed .habit-icon {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .habit-details h4 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: inherit;
+        }
+
+        .habit-details p {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .habit-status {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .monthly-view {
+            margin: 20px 12px;
+        }
+
+        .month-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .nav-arrow {
+            background: #2A2A2A;
+            border: 1px solid #3A3A3A;
+            color: #E6E6E6;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .nav-arrow:hover {
+            background: #353535;
+            color: #F5F5F5;
+        }
+
+        .month-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #F5F5F5;
+            text-align: center;
+            flex: 1;
+            margin: 0 12px;
+        }
+
+        .calendar-container {
+            background: #1F1F1F;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #2E2E2E;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            margin-top: 12px;
+        }
+
+        .day-header {
+            font-weight: 600;
+            text-align: center;
+            padding: 10px;
+            color: #B8B8B8;
+            font-size: 12px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #2A2A2A;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid #3A3A3A;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .calendar-day:hover {
+            background: #353535;
+        }
+
+        .calendar-day.today {
+            border: 2px solid #10A37F;
+            background: rgba(16, 163, 127, 0.1);
+        }
+
+        .calendar-day.has-data {
+            background: #404040;
+        }
+
+        .calendar-day.has-data:hover {
+            background: #505050;
+        }
+
+        .day-indicators {
+            display: flex;
+            gap: 1px;
+            margin-top: 2px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .indicator {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+        }
+
+        .indicator.complete {
+            background: #10A37F;
+        }
+
+        .indicator.partial {
+            background: #FF8C00;
+        }
+
+        .indicator.failed {
+            background: #FF4444;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: #1F1F1F;
+            margin: 35% auto;
+            padding: 20px;
+            border: 1px solid #2E2E2E;
+            border-radius: 16px;
+            width: 85%;
+            max-width: 350px;
+            position: relative;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #2E2E2E;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #F5F5F5;
+        }
+
+        .close {
+            color: #B8B8B8;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 8px;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: #F5F5F5;
+        }
+
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-button {
+            padding: 12px 16px;
+            border: 1px solid #3A3A3A;
+            border-radius: 8px;
+            background: #2A2A2A;
+            color: #E6E6E6;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .option-button:hover {
+            background: #353535;
+        }
+
+        .option-button.complete {
+            background: #10A37F;
+            border-color: #10A37F;
+            color: white;
+        }
+
+        .option-button.partial {
+            background: #FF8C00;
+            border-color: #FF8C00;
+            color: white;
+        }
+
+        .option-button.failed {
+            background: #FF4444;
+            border-color: #FF4444;
+            color: white;
+        }
+
+        .stats-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stats-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: #2A2A2A;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 12px;
+            color: #B8B8B8;
+            font-size: 11px;
+            border-top: 1px solid #2E2E2E;
+            margin-top: 20px;
+            margin-bottom: env(safe-area-inset-bottom);
+        }
+
+        .data-management-button {
+            background: #2A2A2A;
+            color: #B8B8B8;
+            border: 1px solid #3A3A3A;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+
+        .data-management-button:hover {
+            background: #353535;
+            color: #E6E6E6;
+        }
+
+        /* Install prompt styles */
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10A37F;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 2000;
+            max-width: 90%;
+            text-align: center;
+            animation: slideUp 0.3s ease;
+        }
+
+        .install-prompt.show {
+            display: block;
+        }
+
+        .install-prompt-text {
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .install-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .install-btn {
+            background: white;
+            color: #10A37F;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .install-btn.dismiss {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* PWA specific styles */
+        @media (display-mode: fullscreen) {
+            body {
+                padding-top: env(safe-area-inset-top);
+            }
+            
+            .container {
+                padding-top: 40px;
+            }
+        }
+
+        @media (display-mode: standalone) {
+            body {
+                padding-top: env(safe-area-inset-top);
+            }
+            
+            .container {
+                padding-top: 40px;
+            }
+        }
+
+        /* PDF specific button styling */
+        .pdf-export-button {
+            background: linear-gradient(135deg, #10A37F, #0D8B6F);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pdf-export-button:hover {
+            background: linear-gradient(135deg, #0D8B6F, #0A7A65);
+            transform: translateY(-1px);
+        }
+
+        .pdf-export-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .friday-habit {
+            display: none;
+        }
+
+        .friday-habit.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="app-title">⏱️ Habit Tracker</h1>
+            <div class="current-date" id="currentDate">Friday, July 18, 2025</div>
+        </div>
+
+        <div style="text-align: center; margin: 0 12px 12px;">
+            <h2 class="section-title">Monthly Progress</h2>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card complete" onclick="openStatsModal('complete')">
+                <div class="stat-number" id="completeCount">0</div>
+                <div class="stat-label">Complete</div>
+            </div>
+            <div class="stat-card partial" onclick="openStatsModal('partial')">
+                <div class="stat-number" id="partialCount">0</div>
+                <div class="stat-label">Needs Work</div>
+            </div>
+            <div class="stat-card failed" onclick="openStatsModal('failed')">
+                <div class="stat-number" id="failedCount">0</div>
+                <div class="stat-label">Incomplete</div>
+            </div>
+        </div>
+
+        <div class="today-habits">
+            <h2 class="section-title">Today's Habits</h2>
+            <div class="habit-container" id="todayHabits">
+                <div class="habit-row" data-habit="yasin" onclick="openHabitModal('yasin', 'Surah Yasin')">
+                    <div class="habit-info">
+                        <div class="habit-icon">💙</div>
+                        <div class="habit-details">
+                            <h4>Surah Yasin</h4>
+                            <p>Heart of the Quran</p>
+                        </div>
+                    </div>
+                    <div class="habit-status">Not Set</div>
+                </div>
+                <div class="habit-row" data-habit="waqiah" onclick="openHabitModal('waqiah', 'Surah Waqiah')">
+                    <div class="habit-info">
+                        <div class="habit-icon">💰</div>
+                        <div class="habit-details">
+                            <h4>Surah Waqiah</h4>
+                            <p>Protection from poverty</p>
+                        </div>
+                    </div>
+                    <div class="habit-status">Not Set</div>
+                </div>
+                <div class="habit-row" data-habit="mulk" onclick="openHabitModal('mulk', 'Surah Mulk')">
+                    <div class="habit-info">
+                        <div class="habit-icon">🪦</div>
+                        <div class="habit-details">
+                            <h4>Surah Mulk</h4>
+                            <p>Protection from grave</p>
+                        </div>
+                    </div>
+                    <div class="habit-status">Not Set</div>
+                </div>
+                <div class="habit-row friday-habit" data-habit="kahf" onclick="openHabitModal('kahf', 'Surah Kahf')">
+                    <div class="habit-info">
+                        <div class="habit-icon">⛰️</div>
+                        <div class="habit-details">
+                            <h4>Surah Kahf</h4>
+                            <p>Friday special</p>
+                        </div>
+                    </div>
+                    <div class="habit-status">Not Set</div>
+                </div>
+                <div class="habit-row" data-habit="durood" onclick="openHabitModal('durood', 'Durood Sharif')">
+                    <div class="habit-info">
+                        <div class="habit-icon">🕌</div>
+                        <div class="habit-details">
+                            <h4>Durood Sharif</h4>
+                            <p>Sending blessings</p>
+                        </div>
+                    </div>
+                    <div class="habit-status">Not Set</div>
+                </div>
+                <div class="habit-row" data-habit="istighfar" onclick="openHabitModal('istighfar', 'Istighfar')">
+                    <div class="habit-info">
+                        <div class="habit-icon">📿</div>
+                        <div class="habit-details">
+                            <h4>Istighfar</h4>
+                            <p>Seeking forgiveness</p>
+                        </div>
+                    </div>
+                    <div class="habit-status">Not Set</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="monthly-view">
+            <div class="month-navigation">
+                <button class="nav-arrow" id="prevMonth" onclick="changeMonth(-1)">‹</button>
+                <h3 class="month-title" id="monthTitle">July 2025</h3>
+                <button class="nav-arrow" id="nextMonth" onclick="changeMonth(1)">›</button>
+            </div>
+            <div class="calendar-container">
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Calendar will be generated here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Build consistent Islamic habits for spiritual growth
+            <br>
+            <button onclick="showDataInfo()" class="data-management-button">
+                Data Management
+            </button>
+        </div>
+    </div>
+
+    <!-- Install Prompt -->
+    <div id="installPrompt" class="install-prompt">
+        <div class="install-prompt-text">
+            ⏱️ Install Habit Tracker as an app for quick access!
+        </div>
+        <div class="install-buttons">
+            <button class="install-btn" onclick="installApp()">Install</button>
+            <button class="install-btn dismiss" onclick="dismissInstall()">Maybe Later</button>
+        </div>
+    </div>
+
+    <!-- Habit Status Modal -->
+    <div id="habitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Set Habit Status</h2>
+                <span class="close" onclick="closeModal('habitModal')">&times;</span>
+            </div>
+            <div class="modal-options" id="modalOptions">
+                <!-- Options will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Day Details Modal -->
+    <div id="dayModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="dayModalTitle">Day Details</h2>
+                <span class="close" onclick="closeModal('dayModal')">&times;</span>
+            </div>
+            <div id="dayHabitsList">
+                <!-- Day habits will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Modal -->
+    <div id="statsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="statsModalTitle">Monthly Progress</h2>
+                <span class="close" onclick="closeModal('statsModal')">&times;</span>
+            </div>
+            <div class="stats-list" id="statsModalContent">
+                <!-- Stats content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Info Modal -->
+    <div id="dataModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Data Management</h2>
+                <span class="close" onclick="closeModal('dataModal')">&times;</span>
+            </div>
+            <div style="color: #E6E6E6; line-height: 1.6;">
+                <div style="margin: 20px 0; display: flex; flex-direction: column; gap: 12px;">
+                    <button onclick="exportDataAsPDF()" class="pdf-export-button" id="pdfExportBtn">
+                        <div class="loading-spinner" id="pdfSpinner"></div>
+                        <span id="pdfBtnText">Export as PDF Report</span>
+                    </button>
+                    <button onclick="clearData()" class="pdf-export-button" style="background: linear-gradient(135deg, #FF4444, #CC3333); border-color: #FF4444; color: white;">
+                        🗑️ Clear All Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data storage
+        let habitData = {};
+        let currentDisplayMonth = new Date().getMonth() + 1;
+        let currentDisplayYear = new Date().getFullYear();
+        let currentHabit = null;
+        let currentDate = null;
+
+        const baseHabits = ['yasin', 'waqiah', 'mulk', 'durood', 'istighfar'];
+        const habitNames = {
+            'yasin': 'Surah Yasin',
+            'waqiah': 'Surah Waqiah', 
+            'mulk': 'Surah Mulk',
+            'kahf': 'Surah Kahf',
+            'durood': 'Durood Sharif',
+            'istighfar': 'Istighfar'
+        };
+
+        const habitOptions = {
+            'yasin': [
+                { status: 'complete', text: '✓ Complete', description: 'Full Surah' },
+                { status: 'partial', text: '◗ Partial', description: 'Some verses' },
+                { status: 'failed', text: '✗ No', description: 'Not today' }
+            ],
+            'waqiah': [
+                { status: 'complete', text: '✓ Complete', description: 'Full Surah' },
+                { status: 'partial', text: '◗ Partial', description: 'Some verses' },
+                { status: 'failed', text: '✗ No', description: 'Not today' }
+            ],
+            'mulk': [
+                { status: 'complete', text: '✓ Complete', description: 'Full Surah' },
+                { status: 'partial', text: '◗ Partial', description: 'Some verses' },
+                { status: 'failed', text: '✗ No', description: 'Not today' }
+            ],
+            'kahf': [
+                { status: 'complete', text: '✓ Entire Surah', description: 'Complete Surah' },
+                { status: 'partial', text: '◗ 10 Verses', description: 'First 10 verses' },
+                { status: 'failed', text: '✗ No', description: 'Not today' }
+            ],
+            'durood': [
+                { status: 'complete', text: '✓ 10+ Minutes', description: 'Extended recitation' },
+                { status: 'partial', text: '◗ 5-10 Minutes', description: 'Moderate recitation' },
+                { status: 'failed', text: '✗ No', description: 'Not today' }
+            ],
+            'istighfar': [
+                { status: 'complete', text: '✓ 10+ Minutes', description: 'Extended recitation' },
+                { status: 'partial', text: '◗ 5-10 Minutes', description: 'Moderate recitation' },
+                { status: 'failed', text: '✗ No', description: 'Not today' }
+            ]
+        };
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        let installPromptShown = false;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            setTimeout(() => {
+                if (!installPromptShown && !localStorage.getItem('installPromptDismissed')) {
+                    showInstallPrompt();
+                }
+            }, 3000);
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            hideInstallPrompt();
+            localStorage.setItem('installPromptDismissed', 'true');
+        });
+
+        function showInstallPrompt() {
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                return;
+            }
+            
+            installPromptShown = true;
+            document.getElementById('installPrompt').classList.add('show');
+        }
+
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                if (navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('iPad')) {
+                    alert('To install:\n1. Tap the Share button\n2. Select "Add to Home Screen"');
+                } else {
+                    alert('To install:\nLook for the "Install" button in your browser\'s address bar');
+                }
+            }
+            
+            hideInstallPrompt();
+        }
+
+        function dismissInstall() {
+            hideInstallPrompt();
+            localStorage.setItem('installPromptDismissed', 'true');
+        }
+
+        function hideInstallPrompt() {
+            document.getElementById('installPrompt').classList.remove('show');
+        }
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                const swCode = `
+                    const CACHE_NAME = 'habit-tracker-v1';
+                    const urlsToCache = [
+                        '/',
+                        '/index.html'
+                    ];
+
+                    self.addEventListener('install', function(event) {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME)
+                                .then(function(cache) {
+                                    return cache.addAll(urlsToCache);
+                                })
+                        );
+                    });
+
+                    self.addEventListener('fetch', function(event) {
+                        event.respondWith(
+                            caches.match(event.request)
+                                .then(function(response) {
+                                    if (response) {
+                                        return response;
+                                    }
+                                    return fetch(event.request);
+                                })
+                        );
+                    });
+                `;
+
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+
+                navigator.serviceWorker.register(swUrl)
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // Initialize app
+        function init() {
+            updateCurrentDate();
+            loadData();
+            updateTodaysHabits();
+            updateStats();
+            generateCalendar();
+            checkFridayHabit();
+        }
+
+        function updateCurrentDate() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+            document.getElementById('currentDate').textContent = dateStr;
+        }
+
+        function getDateKey(date = new Date()) {
+            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        }
+
+        function checkFridayHabit() {
+            const today = new Date();
+            const isFriday = today.getDay() === 5;
+            
+            const kahfHabit = document.querySelector('[data-habit="kahf"]');
+            if (isFriday) {
+                kahfHabit.classList.add('show');
+            } else {
+                kahfHabit.classList.remove('show');
+            }
+        }
+
+        function getHabitsForDate(date) {
+            const dayOfWeek = new Date(date).getDay();
+            const isFriday = dayOfWeek === 5;
+            
+            if (isFriday) {
+                return [...baseHabits.slice(0, 3), 'kahf', ...baseHabits.slice(3)];
+            }
+            return baseHabits;
+        }
+
+        function updateTodaysHabits() {
+            const today = getDateKey();
+            const todayData = habitData[today] || {};
+            const habitsToShow = getHabitsForDate(today);
+
+            habitsToShow.forEach(habit => {
+                const row = document.querySelector(`[data-habit="${habit}"]`);
+                if (!row) return;
+                
+                const status = todayData[habit] || 'not-set';
+                const statusElement = row.querySelector('.habit-status');
+
+                row.classList.remove('complete', 'partial', 'failed');
+
+                switch (status) {
+                    case 'complete':
+                        row.classList.add('complete');
+                        statusElement.textContent = 'Complete';
+                        break;
+                    case 'partial':
+                        row.classList.add('partial');
+                        statusElement.textContent = 'Partial';
+                        break;
+                    case 'failed':
+                        row.classList.add('failed');
+                        statusElement.textContent = 'No';
+                        break;
+                    default:
+                        statusElement.textContent = 'Not Set';
+                }
+            });
+        }
+
+        function updateStats() {
+            const currentMonth = new Date().getMonth() + 1;
+            const currentYear = new Date().getFullYear();
+            
+            let completeCount = 0;
+            let partialCount = 0;
+            let failedCount = 0;
+
+            Object.entries(habitData).forEach(([date, dayData]) => {
+                const dateObj = new Date(date);
+                if (dateObj.getMonth() + 1 === currentMonth && dateObj.getFullYear() === currentYear) {
+                    Object.values(dayData).forEach(status => {
+                        if (status === 'complete') completeCount++;
+                        else if (status === 'partial') partialCount++;
+                        else if (status === 'failed') failedCount++;
+                    });
+                }
+            });
+
+            document.getElementById('completeCount').textContent = completeCount;
+            document.getElementById('partialCount').textContent = partialCount;
+            document.getElementById('failedCount').textContent = failedCount;
+        }
+
+        function openHabitModal(habit, habitName) {
+            currentHabit = habit;
+            currentDate = null;
+            document.getElementById('modalTitle').textContent = habitName;
+            
+            const modalOptions = document.getElementById('modalOptions');
+            modalOptions.innerHTML = '';
+            
+            const options = habitOptions[habit];
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = `option-button ${option.status}`;
+                button.innerHTML = `
+                    <div>${option.text}</div>
+                    <div style="font-size: 12px; opacity: 0.8; margin-top: 4px;">${option.description}</div>
+                `;
+                button.onclick = () => setHabitStatus(option.status);
+                modalOptions.appendChild(button);
+            });
+            
+            const clearButton = document.createElement('button');
+            clearButton.className = 'option-button';
+            clearButton.style.cssText = 'background: #2A2A2A; color: #B8B8B8; border-color: #3A3A3A; margin-top: 12px;';
+            clearButton.textContent = 'Clear';
+            clearButton.onclick = clearHabitStatus;
+            modalOptions.appendChild(clearButton);
+            
+            document.getElementById('habitModal').style.display = 'block';
+        }
+
+        function setHabitStatus(status) {
+            if (!currentHabit) return;
+
+            const dateKey = currentDate || getDateKey();
+            
+            if (!habitData[dateKey]) {
+                habitData[dateKey] = {};
+            }
+
+            habitData[dateKey][currentHabit] = status;
+            saveData();
+            updateTodaysHabits();
+            updateStats();
+            generateCalendar();
+            closeModal('habitModal');
+            
+            if (currentDate && currentDate !== getDateKey()) {
+                setTimeout(() => {
+                    const dayNumber = parseInt(currentDate.split('-')[2]);
+                    openDayModal(dayNumber);
+                }, 200);
+            }
+        }
+
+        function clearHabitStatus() {
+            if (!currentHabit) return;
+
+            const dateKey = currentDate || getDateKey();
+            
+            if (habitData[dateKey] && habitData[dateKey][currentHabit]) {
+                delete habitData[dateKey][currentHabit];
+                
+                if (Object.keys(habitData[dateKey]).length === 0) {
+                    delete habitData[dateKey];
+                }
+                
+                saveData();
+                updateTodaysHabits();
+                updateStats();
+                generateCalendar();
+                closeModal('habitModal');
+                
+                if (currentDate && currentDate !== getDateKey()) {
+                    setTimeout(() => {
+                        const dayNumber = parseInt(currentDate.split('-')[2]);
+                        openDayModal(dayNumber);
+                    }, 200);
+                }
+            }
+        }
+
+        function openStatsModal(type) {
+            const modalTitle = document.getElementById('statsModalTitle');
+            const modalContent = document.getElementById('statsModalContent');
+            
+            const titles = {
+                'complete': 'Complete Habits',
+                'partial': 'Partial Habits', 
+                'failed': 'Incomplete Habits'
+            };
+            
+            modalTitle.textContent = titles[type];
+            modalContent.innerHTML = '';
+
+            const currentMonth = new Date().getMonth() + 1;
+            const currentYear = new Date().getFullYear();
+
+            const filteredHabits = [];
+            Object.entries(habitData).forEach(([date, dayData]) => {
+                const dateObj = new Date(date);
+                if (dateObj.getMonth() + 1 === currentMonth && dateObj.getFullYear() === currentYear) {
+                    Object.entries(dayData).forEach(([habit, status]) => {
+                        if (status === type) {
+                            filteredHabits.push({ date, habit, status });
+                        }
+                    });
+                }
+            });
+
+            if (filteredHabits.length === 0) {
+                modalContent.innerHTML = '<div style="text-align: center; color: #B8B8B8; padding: 20px;">No habits found for this month</div>';
+            } else {
+                const habitOrder = { yasin: 0, waqiah: 1, mulk: 2, kahf: 3, durood: 4, istighfar: 5 };
+                
+                filteredHabits.sort((a, b) => {
+                    const dateCompare = new Date(b.date) - new Date(a.date);
+                    if (dateCompare !== 0) return dateCompare;
+                    
+                    return habitOrder[a.habit] - habitOrder[b.habit];
+                });
+
+                filteredHabits.forEach(({ date, habit, status }) => {
+                    const dateObj = new Date(date);
+                    const dateStr = dateObj.toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+                    
+                    const item = document.createElement('div');
+                    item.className = 'stats-item';
+                    item.innerHTML = `
+                        <span>${dateStr} - ${habitNames[habit]}</span>
+                        <span style="color: ${status === 'complete' ? '#10A37F' : status === 'partial' ? '#FF8C00' : '#FF4444'};">
+                            ${status === 'complete' ? 'Complete' : status === 'partial' ? 'Partial' : 'Incomplete'}
+                        </span>
+                    `;
+                    
+                    modalContent.appendChild(item);
+                });
+            }
+
+            document.getElementById('statsModal').style.display = 'block';
+        }
+
+        function generateCalendar() {
+            const grid = document.getElementById('calendarGrid');
+            const monthTitle = document.getElementById('monthTitle');
+            
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                            'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            monthTitle.textContent = `${monthNames[currentDisplayMonth - 1]} ${currentDisplayYear}`;
+            
+            grid.innerHTML = '';
+            
+            const dayHeaders = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+            dayHeaders.forEach(header => {
+                const headerEl = document.createElement('div');
+                headerEl.className = 'day-header';
+                headerEl.textContent = header;
+                grid.appendChild(headerEl);
+            });
+            
+            const firstDay = new Date(currentDisplayYear, currentDisplayMonth - 1, 1);
+            const lastDay = new Date(currentDisplayYear, currentDisplayMonth, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDay = firstDay.getDay();
+            
+            for (let i = 0; i < startingDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day';
+                grid.appendChild(emptyDay);
+            }
+            
+            const today = new Date();
+            const isCurrentMonth = today.getFullYear() === currentDisplayYear && 
+                                today.getMonth() + 1 === currentDisplayMonth;
+            const todayDate = today.getDate();
+            
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day';
+                dayEl.innerHTML = `<div>${day}</div>`;
+                
+                dayEl.style.cursor = 'pointer';
+                dayEl.addEventListener('click', function() {
+                    openDayModal(day);
+                });
+                
+                const dateKey = `${currentDisplayYear}-${String(currentDisplayMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayData = habitData[dateKey];
+                
+                if (dayData) {
+                    dayEl.classList.add('has-data');
+                    const indicators = document.createElement('div');
+                    indicators.className = 'day-indicators';
+                    
+                    const statusCounts = { complete: 0, partial: 0, failed: 0 };
+                    Object.values(dayData).forEach(status => {
+                        if (statusCounts[status] !== undefined) {
+                            statusCounts[status]++;
+                        }
+                    });
+                    
+                    Object.entries(statusCounts).forEach(([status, count]) => {
+                        for (let i = 0; i < count; i++) {
+                            const indicator = document.createElement('div');
+                            indicator.className = `indicator ${status}`;
+                            indicators.appendChild(indicator);
+                        }
+                    });
+                    
+                    dayEl.appendChild(indicators);
+                }
+                
+                if (isCurrentMonth && day === todayDate) {
+                    dayEl.classList.add('today');
+                }
+                
+                grid.appendChild(dayEl);
+            }
+        }
+
+        function openDayModal(day) {
+            const dateKey = `${currentDisplayYear}-${String(currentDisplayMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            const dayData = habitData[dateKey] || {};
+            
+            const date = new Date(currentDisplayYear, currentDisplayMonth - 1, day);
+            const dateStr = date.toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+            
+            document.getElementById('dayModalTitle').textContent = dateStr;
+            
+            const habitsList = document.getElementById('dayHabitsList');
+            habitsList.innerHTML = '';
+            
+            const habitContainer = document.createElement('div');
+            habitContainer.style.cssText = `
+                background: #1F1F1F;
+                border-radius: 16px;
+                overflow: hidden;
+                border: 1px solid #2E2E2E;
+            `;
+            
+            const habitsForDate = getHabitsForDate(dateKey);
+            
+            habitsForDate.forEach((habit, index) => {
+                const status = dayData[habit] || 'not-set';
+                const habitName = habitNames[habit];
+                
+                const habitItem = document.createElement('div');
+                habitItem.className = 'habit-row';
+                
+                let statusText = 'Not Set';
+                let statusClass = '';
+                
+                switch (status) {
+                    case 'complete':
+                        statusText = 'Complete';
+                        statusClass = 'complete';
+                        break;
+                    case 'partial':
+                        statusText = 'Partial';
+                        statusClass = 'partial';
+                        break;
+                    case 'failed':
+                        statusText = 'No';
+                        statusClass = 'failed';
+                        break;
+                }
+                
+                if (statusClass) {
+                    habitItem.classList.add(statusClass);
+                }
+                
+                if (index < habitsForDate.length - 1) {
+                    habitItem.style.borderBottom = '1px solid #2E2E2E';
+                    if (statusClass) {
+                        habitItem.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+                    }
+                }
+                
+                habitItem.innerHTML = `
+                    <div class="habit-info">
+                        <div class="habit-icon">${getHabitIcon(habit)}</div>
+                        <div class="habit-details">
+                            <h4>${habitName}</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="habit-status">${statusText}</div>
+                `;
+                
+                habitItem.addEventListener('click', function() {
+                    currentHabit = habit;
+                    currentDate = dateKey;
+                    openHabitModal(habit, habitName);
+                    closeModal('dayModal');
+                });
+                
+                habitContainer.appendChild(habitItem);
+            });
+            
+            habitsList.appendChild(habitContainer);
+            document.getElementById('dayModal').style.display = 'block';
+        }
+
+        function getHabitIcon(habit) {
+            const icons = {
+                'yasin': '💙',
+                'waqiah': '💰',
+                'mulk': '🪦',
+                'kahf': '⛰️',
+                'durood': '🕌',
+                'istighfar': '📿'
+            };
+            return icons[habit] || '📖';
+        }
+
+        function changeMonth(direction) {
+            currentDisplayMonth += direction;
+            
+            if (currentDisplayMonth > 12) {
+                currentDisplayMonth = 1;
+                currentDisplayYear++;
+            } else if (currentDisplayMonth < 1) {
+                currentDisplayMonth = 12;
+                currentDisplayYear--;
+            }
+            
+            generateCalendar();
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function loadData() {
+            const stored = localStorage.getItem('habitTracker');
+            habitData = stored ? JSON.parse(stored) : {};
+        }
+
+        function saveData() {
+            localStorage.setItem('habitTracker', JSON.stringify(habitData));
+        }
+
+        function showDataInfo() {
+            document.getElementById('dataModal').style.display = 'block';
+        }
+
+        function exportDataAsPDF() {
+            const btn = document.getElementById('pdfExportBtn');
+            const btnText = document.getElementById('pdfBtnText');
+            const spinner = document.getElementById('pdfSpinner');
+            
+            const originalText = btnText.textContent;
+            btnText.textContent = 'Generating PDF...';
+            spinner.style.display = 'block';
+            btn.disabled = true;
+
+            try {
+                if (typeof window.jspdf === 'undefined') {
+                    alert('PDF library not loaded. Please refresh the page and try again.');
+                    resetPdfButton();
+                    return;
+                }
+
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                const currentDate = new Date().toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                let totalHabits = 0;
+                let completeCount = 0;
+                let partialCount = 0;
+                let failedCount = 0;
+                const monthlyStats = {};
+                const dailyRecords = [];
+
+                Object.entries(habitData).forEach(([date, dayData]) => {
+                    const month = date.substring(0, 7);
+                    if (!monthlyStats[month]) {
+                        monthlyStats[month] = { complete: 0, partial: 0, failed: 0 };
+                    }
+
+                    const dayRecord = { date, habits: [] };
+                    
+                    Object.entries(dayData).forEach(([habit, status]) => {
+                        totalHabits++;
+                        dayRecord.habits.push({ habit, status });
+                        
+                        if (status === 'complete') {
+                            completeCount++;
+                            monthlyStats[month].complete++;
+                        } else if (status === 'partial') {
+                            partialCount++;
+                            monthlyStats[month].partial++;
+                        } else if (status === 'failed') {
+                            failedCount++;
+                            monthlyStats[month].failed++;
+                        }
+                    });
+                    
+                    if (dayRecord.habits.length > 0) {
+                        dailyRecords.push(dayRecord);
+                    }
+                });
+
+                generateHabitPDF(doc, {
+                    currentDate,
+                    totalHabits,
+                    completeCount,
+                    partialCount,
+                    failedCount,
+                    monthlyStats,
+                    dailyRecords
+                });
+                
+                const fileName = `habit_report_${new Date().toISOString().split('T')[0]}.pdf`;
+                doc.save(fileName);
+                
+                setTimeout(() => {
+                    alert('📄 PDF report generated successfully!');
+                }, 500);
+                
+                resetPdfButton();
+
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF: ' + error.message);
+                resetPdfButton();
+            }
+            
+            function resetPdfButton() {
+                btnText.textContent = originalText;
+                spinner.style.display = 'none';
+                btn.disabled = false;
+            }
+        }
+
+        function generateHabitPDF(doc, data) {
+    doc.setFillColor(24, 24, 24);
+    doc.rect(0, 0, 210, 40, 'F');
+    
+    doc.setFillColor(16, 163, 127);
+    doc.rect(0, 0, 210, 3, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(16);
+    doc.setFont(undefined, 'bold');
+    doc.text('ISLAMIC HABIT TRACKER REPORT', 105, 15, { align: 'center' });
+    
+    doc.setFontSize(12);
+    doc.setTextColor(230, 230, 230);
+    doc.text('Your Spiritual Journey Progress', 105, 22, { align: 'center' });
+    
+    doc.setTextColor(184, 184, 184);
+    doc.setFontSize(9);
+    doc.setFont(undefined, 'normal');
+    doc.text(`Generated on ${data.currentDate}`, 105, 28, { align: 'center' });
+    doc.text('Yasin • Waqiah • Mulk • Durood • Istighfar', 105, 34, { align: 'center' });
+
+    let yPos = 50;
+
+    doc.setTextColor(31, 41, 55);
+    doc.setFontSize(14);
+    doc.setFont(undefined, 'bold');
+    doc.text('Habit Statistics Overview', 105, yPos, { align: 'center' });
+
+    yPos += 10;
+
+    const statBoxWidth = 42;
+    const statBoxHeight = 25;
+    const startX = 15;
+    const gap = 5;
+
+    const stats = [
+        { label: 'Total', value: data.totalHabits, color: [99, 102, 241] },
+        { label: 'Complete', value: data.completeCount, color: [16, 163, 127] },
+        { label: 'Partial', value: data.partialCount, color: [255, 140, 0] },
+        { label: 'Incomplete', value: data.failedCount, color: [239, 68, 68] }
+    ];
+
+    stats.forEach((stat, index) => {
+        const x = startX + (statBoxWidth + gap) * index;
+        
+        doc.setFillColor(248, 250, 252);
+        doc.roundedRect(x, yPos, statBoxWidth, statBoxHeight, 3, 3, 'F');
+        
+        doc.setDrawColor(226, 232, 240);
+        doc.setLineWidth(0.5);
+        doc.roundedRect(x, yPos, statBoxWidth, statBoxHeight, 3, 3, 'S');
+        
+        doc.setTextColor(stat.color[0], stat.color[1], stat.color[2]);
+        doc.setFontSize(18);
+        doc.setFont(undefined, 'bold');
+        doc.text(stat.value.toString(), x + statBoxWidth / 2, yPos + 12, { align: 'center' });
+        
+        doc.setTextColor(100, 116, 139);
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'normal');
+        doc.text(stat.label, x + statBoxWidth / 2, yPos + 20, { align: 'center' });
+    });
+
+    yPos += 35;
+
+    const completionRate = data.totalHabits > 0 ? Math.round(((data.completeCount + data.partialCount * 0.5) / data.totalHabits) * 100) : 0;
+    
+    doc.setTextColor(31, 41, 55);
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'bold');
+    doc.text('Overall Progress Rate', 105, yPos, { align: 'center' });
+    
+    yPos += 8;
+    
+    const barWidth = 160;
+    const barHeight = 8;
+    const barX = (210 - barWidth) / 2;
+    
+    doc.setFillColor(229, 231, 235);
+    doc.roundedRect(barX, yPos, barWidth, barHeight, 4, 4, 'F');
+    
+    const progressWidth = (barWidth * completionRate) / 100;
+    doc.setFillColor(16, 163, 127);
+    doc.roundedRect(barX, yPos, progressWidth, barHeight, 4, 4, 'F');
+    
+    doc.setTextColor(31, 41, 55);
+    doc.setFontSize(11);
+    doc.setFont(undefined, 'bold');
+    doc.text(`${completionRate}% Progress`, 105, yPos + 15, { align: 'center' });
+
+    yPos += 25;
+
+    if (Object.keys(data.monthlyStats).length > 0) {
+        doc.setTextColor(31, 41, 55);
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'bold');
+        doc.text('Monthly Summary', 15, yPos);
+
+        yPos += 8;
+
+        const monthlyData = Object.entries(data.monthlyStats)
+            .sort()
+            .reverse()
+            .slice(0, 6)
+            .map(([month, stats]) => {
+                const monthName = new Date(month + '-01').toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+                const monthTotal = stats.complete + stats.partial + stats.failed;
+                const monthProgress = monthTotal > 0 ? Math.round(((stats.complete + stats.partial * 0.5) / monthTotal) * 100) : 0;
+                
+                return [monthName, stats.complete.toString(), stats.partial.toString(), stats.failed.toString(), `${monthProgress}%`];
+            });
+
+        if (monthlyData.length > 0) {
+            doc.autoTable({
+                startY: yPos,
+                head: [['Month', 'Complete', 'Partial', 'Incomplete', 'Progress']],
+                body: monthlyData,
+                theme: 'striped',
+                headStyles: { 
+                    fillColor: [16, 163, 127], 
+                    textColor: [255, 255, 255],
+                    fontSize: 10,
+                    fontStyle: 'bold'
+                },
+                bodyStyles: { 
+                    fontSize: 9,
+                    cellPadding: 4
+                },
+                columnStyles: {
+                    0: { cellWidth: 50 },
+                    1: { cellWidth: 32, halign: 'center', fillColor: [240, 253, 244] },
+                    2: { cellWidth: 32, halign: 'center', fillColor: [255, 251, 235] },
+                    3: { cellWidth: 32, halign: 'center', fillColor: [254, 242, 242] },
+                    4: { cellWidth: 34, halign: 'center', fontStyle: 'bold' }
+                },
+                margin: { left: 15, right: 15 },
+                tableWidth: 180
+            });
+            
+            yPos = doc.lastAutoTable.finalY + 15;
+        }
+    }
+
+    if (data.dailyRecords.length > 0) {
+        if (yPos > 200) {
+            doc.addPage();
+            yPos = 20;
+        }
+
+        doc.setTextColor(31, 41, 55);
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'bold');
+        doc.text('Recent Habit Records', 15, yPos);
+
+        yPos += 8;
+
+        const recentRecords = data.dailyRecords
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .slice(0, 15);
+
+        recentRecords.forEach(record => {
+            const dateObj = new Date(record.date);
+            const dateStr = dateObj.toLocaleDateString('en-US', { 
+                weekday: 'short',
+                month: 'short', 
+                day: 'numeric' 
+            });
+
+            doc.setFillColor(248, 250, 252);
+            doc.rect(15, yPos, 180, 8, 'F');
+            doc.setTextColor(75, 85, 99);
+            doc.setFontSize(9);
+            doc.setFont(undefined, 'bold');
+            doc.text(dateStr, 18, yPos + 5.5);
+
+            yPos += 10;
+
+            const habitStatusText = record.habits.map(h => {
+                const icon = h.status === 'complete' ? 'DONE' : h.status === 'partial' ? 'PART' : 'SKIP';
+                const habitName = habitNames[h.habit];
+                return `${icon}: ${habitName}`;
+            }).join('  |  ');
+
+            doc.setTextColor(100, 116, 139);
+            doc.setFontSize(8);
+            doc.setFont(undefined, 'normal');
+            const wrappedText = doc.splitTextToSize(habitStatusText, 170);
+            doc.text(wrappedText, 18, yPos);
+            
+            yPos += wrappedText.length * 4 + 3;
+
+            if (yPos > 250) {
+                doc.addPage();
+                yPos = 20;
+            }
+        });
+    }
+
+    // Footer
+    const pageCount = doc.internal.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+        doc.setPage(i);
+        doc.setTextColor(107, 114, 128);
+        doc.setFontSize(8);
+        doc.setFont(undefined, 'normal');
+        doc.text('Generated by Islamic Habit Tracker App', 105, 285, { align: 'center' });
+        doc.text('May Allah bless your journey towards spiritual excellence.', 105, 290, { align: 'center' });
+    }
+}
+
+function clearData() {
+    if (confirm('Are you sure you want to clear ALL your habit data? This cannot be undone.')) {
+        if (confirm('This will permanently delete all your habit records. Continue?')) {
+            localStorage.removeItem('habitTracker');
+            habitData = {};
+            closeModal('dataModal');
+            location.reload();
+        }
+    }
+}
+
+// Close modals when clicking outside
+window.onclick = function(event) {
+    const modals = ['habitModal', 'dayModal', 'statsModal', 'dataModal'];
+    modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (event.target === modal) {
+            closeModal(modalId);
+            if (modalId === 'habitModal') {
+                setTimeout(() => {
+                    currentHabit = null;
+                    currentDate = null;
+                }, 100);
+            }
+        }
+    });
+}
+
+// Initialize app when page loads
+document.addEventListener('DOMContentLoaded', init);
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
+    </script>
+</body>
+</html>
