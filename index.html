@@ -7,19 +7,66 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="⏱️ Habits">
     <meta name="theme-color" content="#181818">
-    <meta name="viewport-fit" content="cover">
     <title>⏱️ Habit Tracker</title>
     
     <!-- PWA Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAABHNCSVQICAgIfAhkiAAAA6NJREFUeJzt3UFOwzAQBdDGKE0TGlG1qqCCyqkKZ+hJ4Aw9ASdhJSG1QKOqTdMQO2LhPyGk75k9tmfGM2NnZhwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWDrOzMjMzMj8/Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+PhqKR8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx+vl/Lx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH7+X8vHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/1fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+X8fAAAAADf0xhGUH3/0AAAAASUVORK5CYII=">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAABHNCSVQICAgIfAhkiAAAA6NJREFUeJzt3UFOwzAQBdDGKE0TGlG1qqCCyqkKZ+hJ4Aw9ASdhJSG1QKOqTdMQO2LhPyGk75k9tmfGM2NnZhwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWDrOzMjMzMj8/Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+PhqKR8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx+vl/Lx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH7+X8vHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/1fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+X8fAAAAADf0xhGUH3/0AAAAASUVORK5CYII=">
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+    
+    <!-- Firebase SDK v10 -->
+    <script type="module">
+        (async () => {
+            try {
+                const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js');
+                const { getAuth, signInAnonymously, onAuthStateChanged } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
+                const { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, getDocs } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
+                
+                const firebaseConfig = {
+                    apiKey: "AIzaSyCMM5u7GiO-D5r15axueQX0Uu3sy9_W4Bg",
+                    authDomain: "salah-tracker-2af1f.firebaseapp.com",
+                    projectId: "salah-tracker-2af1f",
+                    storageBucket: "salah-tracker-2af1f.firebasestorage.app",
+                    messagingSenderId: "507734085886",
+                    appId: "1:507734085886:web:74a7c531a6db87071e95af"
+                };
+                
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                const db = getFirestore(app);
+                
+                window.firebase = { auth, db };
+                window.firebaseModules = {
+                    signInAnonymously,
+                    onAuthStateChanged,
+                    doc,
+                    setDoc,
+                    getDoc,
+                    onSnapshot,
+                    collection,
+                    getDocs
+                };
+                
+                window.firebaseReady = true;
+                window.updateCloudStatus('connected', '☁️ Cloud Sync Available');
+                
+                onAuthStateChanged(auth, (user) => {
+                    window.currentFirebaseUser = user;
+                    if (user && window.currentUserProfile) {
+                        window.loadCloudData();
+                    }
+                });
+                
+            } catch (error) {
+                console.warn('Firebase not available, using offline mode:', error);
+                window.firebaseError = error;
+                window.updateCloudStatus('offline', '📱 Offline Mode');
+            }
+        })();
+    </script>
     
     <!-- PDF Generation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
     
     <style>
         * {
@@ -50,12 +97,160 @@
             padding-top: 15px;
         }
 
+        /* Login Section */
+        .login-section {
+            margin: 60px 20px;
+            display: none;
+        }
+
+        .login-card {
+            background: #1F1F1F;
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid #2E2E2E;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #F5F5F5;
+            text-align: center;
+        }
+
+        .app-subtitle {
+            font-size: 16px;
+            color: #B8B8B8;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cloud-status {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .cloud-status.connected {
+            background: rgba(16, 163, 127, 0.2);
+            color: #10A37F;
+        }
+
+        .cloud-status.offline {
+            background: rgba(255, 149, 0, 0.2);
+            color: #FF9500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #B8B8B8;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid #3A3A3A;
+            border-radius: 12px;
+            background: #2A2A2A;
+            color: #E6E6E6;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #10A37F;
+            background: #1F1F1F;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 16px;
+            background: #10A37F;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .login-button:hover {
+            background: #0D7A5F;
+        }
+
+        .signup-section {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #2E2E2E;
+            margin-top: 20px;
+        }
+
+        .signup-button {
+            background: transparent;
+            color: #10A37F;
+            border: 1px solid #10A37F;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .signup-button:hover {
+            background: #10A37F;
+            color: white;
+        }
+
+        .error-message {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid #FF4444;
+            color: #FF4444;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(16, 163, 127, 0.1);
+            border: 1px solid #10A37F;
+            color: #10A37F;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: block;
+        }
+
         .header {
             padding: 15px 20px 20px 20px;
             text-align: center;
         }
 
-        .app-title {
+        .main-title {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 12px;
@@ -66,6 +261,16 @@
             font-size: 16px;
             font-weight: 600;
             color: #B8B8B8;
+        }
+
+        .user-info {
+            margin-top: 15px;
+            padding: 12px 16px;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 12px;
+            color: #E6E6E6;
+            font-size: 14px;
+            font-weight: 600;
         }
 
         .stats-container {
@@ -359,7 +564,7 @@
 
         .modal-content {
             background: #1F1F1F;
-            margin: 50% auto;
+            margin: 35% auto;
             padding: 20px;
             border: 1px solid #2E2E2E;
             border-radius: 16px;
@@ -483,6 +688,30 @@
             color: #E6E6E6;
         }
 
+        .logout-button {
+            background: #FF4444;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 16px auto;
+            display: block;
+        }
+
+        .logout-button:hover {
+            background: #CC3333;
+        }
+
+        /* Signup Modal */
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         /* Install prompt styles */
         .install-prompt {
             position: fixed;
@@ -544,27 +773,6 @@
             }
         }
 
-        /* PWA specific styles */
-        @media (display-mode: fullscreen) {
-            body {
-                padding-top: env(safe-area-inset-top);
-            }
-            
-            .container {
-                padding-top: 40px;
-            }
-        }
-
-        @media (display-mode: standalone) {
-            body {
-                padding-top: env(safe-area-inset-top);
-            }
-            
-            .container {
-                padding-top: 40px;
-            }
-        }
-
         /* PDF specific button styling */
         .pdf-export-button {
             background: linear-gradient(135deg, #10A37F, #0D8B6F);
@@ -615,119 +823,170 @@
         .friday-habit.show {
             display: flex;
         }
+
+        /* PWA specific styles */
+        @media (display-mode: fullscreen) {
+            body {
+                padding-top: env(safe-area-inset-top);
+            }
+            
+            .container {
+                padding-top: 40px;
+            }
+        }
+
+        @media (display-mode: standalone) {
+            body {
+                padding-top: env(safe-area-inset-top);
+            }
+            
+            .container {
+                padding-top: 40px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1 class="app-title">⏱️ Habit Tracker</h1>
-            <div class="current-date" id="currentDate">Friday, July 18, 2025</div>
-        </div>
-
-        <div style="text-align: center; margin: 0 12px 12px;">
-            <h2 class="section-title">Monthly Progress</h2>
-        </div>
-
-        <div class="stats-container">
-            <div class="stat-card complete" onclick="openStatsModal('complete')">
-                <div class="stat-number" id="completeCount">0</div>
-                <div class="stat-label">Complete</div>
-            </div>
-            <div class="stat-card partial" onclick="openStatsModal('partial')">
-                <div class="stat-number" id="partialCount">0</div>
-                <div class="stat-label">Needs Work</div>
-            </div>
-            <div class="stat-card failed" onclick="openStatsModal('failed')">
-                <div class="stat-number" id="failedCount">0</div>
-                <div class="stat-label">Incomplete</div>
-            </div>
-        </div>
-
-        <div class="today-habits">
-            <h2 class="section-title">Today's Habits</h2>
-            <div class="habit-container" id="todayHabits">
-                <div class="habit-row" data-habit="yasin" onclick="openHabitModal('yasin', 'Surah Yasin')">
-                    <div class="habit-info">
-                        <div class="habit-icon">💙</div>
-                        <div class="habit-details">
-                            <h4>Surah Yasin</h4>
-                            <p>Heart of the Quran</p>
-                        </div>
-                    </div>
-                    <div class="habit-status">Not Set</div>
+        <!-- Login Section -->
+        <div class="login-section" id="loginSection">
+            <div class="login-card">
+                <h1 class="app-title">⏱️ Habit Tracker</h1>
+                <p class="app-subtitle">Track your Islamic habits with cloud sync</p>
+                
+                <div class="cloud-status offline" id="cloudStatus">📱 Loading...</div>
+                
+                <div class="error-message" id="errorMessage"></div>
+                <div class="success-message" id="successMessage"></div>
+                
+                <div class="form-group">
+                    <label class="form-label">Access Code</label>
+                    <input type="password" class="form-input" id="accessCode" placeholder="Enter your access code">
                 </div>
-                <div class="habit-row" data-habit="waqiah" onclick="openHabitModal('waqiah', 'Surah Waqiah')">
-                    <div class="habit-info">
-                        <div class="habit-icon">💰</div>
-                        <div class="habit-details">
-                            <h4>Surah Waqiah</h4>
-                            <p>Protection from poverty</p>
-                        </div>
-                    </div>
-                    <div class="habit-status">Not Set</div>
-                </div>
-                <div class="habit-row" data-habit="mulk" onclick="openHabitModal('mulk', 'Surah Mulk')">
-                    <div class="habit-info">
-                        <div class="habit-icon">🪦</div>
-                        <div class="habit-details">
-                            <h4>Surah Mulk</h4>
-                            <p>Protection from grave</p>
-                        </div>
-                    </div>
-                    <div class="habit-status">Not Set</div>
-                </div>
-                <div class="habit-row friday-habit" data-habit="kahf" onclick="openHabitModal('kahf', 'Surah Kahf')">
-                    <div class="habit-info">
-                        <div class="habit-icon">⛰️</div>
-                        <div class="habit-details">
-                            <h4>Surah Kahf</h4>
-                            <p>Friday special</p>
-                        </div>
-                    </div>
-                    <div class="habit-status">Not Set</div>
-                </div>
-                <div class="habit-row" data-habit="durood" onclick="openHabitModal('durood', 'Durood Sharif')">
-                    <div class="habit-info">
-                        <div class="habit-icon">🕌</div>
-                        <div class="habit-details">
-                            <h4>Durood Sharif</h4>
-                            <p>Sending blessings</p>
-                        </div>
-                    </div>
-                    <div class="habit-status">Not Set</div>
-                </div>
-                <div class="habit-row" data-habit="istighfar" onclick="openHabitModal('istighfar', 'Istighfar')">
-                    <div class="habit-info">
-                        <div class="habit-icon">📿</div>
-                        <div class="habit-details">
-                            <h4>Istighfar</h4>
-                            <p>Seeking forgiveness</p>
-                        </div>
-                    </div>
-                    <div class="habit-status">Not Set</div>
+                
+                <button class="login-button" onclick="login()">Login</button>
+                
+                <div class="signup-section">
+                    <p style="color: #B8B8B8; margin-bottom: 12px;">Don't have an access code?</p>
+                    <button class="signup-button" onclick="showSignupModal()">Create New Profile</button>
                 </div>
             </div>
         </div>
 
-        <div class="monthly-view">
-            <div class="month-navigation">
-                <button class="nav-arrow" id="prevMonth" onclick="changeMonth(-1)">‹</button>
-                <h3 class="month-title" id="monthTitle">July 2025</h3>
-                <button class="nav-arrow" id="nextMonth" onclick="changeMonth(1)">›</button>
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+            <div class="header">
+                <h1 class="main-title">⏱️ Habit Tracker</h1>
+                <div class="current-date" id="currentDate">Friday, July 18, 2025</div>
+                <div class="user-info" id="userInfo"></div>
             </div>
-            <div class="calendar-container">
-                <div class="calendar-grid" id="calendarGrid">
-                    <!-- Calendar will be generated here -->
+
+            <div style="text-align: center; margin: 0 12px 12px;">
+                <h2 class="section-title">Monthly Progress</h2>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card complete" onclick="openStatsModal('complete')">
+                    <div class="stat-number" id="completeCount">0</div>
+                    <div class="stat-label">Complete</div>
+                </div>
+                <div class="stat-card partial" onclick="openStatsModal('partial')">
+                    <div class="stat-number" id="partialCount">0</div>
+                    <div class="stat-label">Needs Work</div>
+                </div>
+                <div class="stat-card failed" onclick="openStatsModal('failed')">
+                    <div class="stat-number" id="failedCount">0</div>
+                    <div class="stat-label">Incomplete</div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer">
-            Build consistent Islamic habits for spiritual growth
-            <br>
-            <button onclick="showDataInfo()" class="data-management-button">
-                Data Management
-            </button>
+            <div class="today-habits">
+                <h2 class="section-title">Today's Habits</h2>
+                <div class="habit-container" id="todayHabits">
+                    <div class="habit-row" data-habit="yasin" onclick="openTodayHabitModal('yasin', 'Surah Yasin')">
+                        <div class="habit-info">
+                            <div class="habit-icon">💙</div>
+                            <div class="habit-details">
+                                <h4>Surah Yasin</h4>
+                                <p>Heart of the Quran</p>
+                            </div>
+                        </div>
+                        <div class="habit-status">Not Set</div>
+                    </div>
+                    <div class="habit-row" data-habit="waqiah" onclick="openTodayHabitModal('waqiah', 'Surah Waqiah')">
+                        <div class="habit-info">
+                            <div class="habit-icon">💰</div>
+                            <div class="habit-details">
+                                <h4>Surah Waqiah</h4>
+                                <p>Protection from poverty</p>
+                            </div>
+                        </div>
+                        <div class="habit-status">Not Set</div>
+                    </div>
+                    <div class="habit-row" data-habit="mulk" onclick="openTodayHabitModal('mulk', 'Surah Mulk')">
+                        <div class="habit-info">
+                            <div class="habit-icon">🪦</div>
+                            <div class="habit-details">
+                                <h4>Surah Mulk</h4>
+                                <p>Protection from grave</p>
+                            </div>
+                        </div>
+                        <div class="habit-status">Not Set</div>
+                    </div>
+                    <div class="habit-row friday-habit" data-habit="kahf" onclick="openTodayHabitModal('kahf', 'Surah Kahf')">
+                        <div class="habit-info">
+                            <div class="habit-icon">⛰️</div>
+                            <div class="habit-details">
+                                <h4>Surah Kahf</h4>
+                                <p>Friday special</p>
+                            </div>
+                        </div>
+                        <div class="habit-status">Not Set</div>
+                    </div>
+                    <div class="habit-row" data-habit="durood" onclick="openTodayHabitModal('durood', 'Durood Sharif')">
+                        <div class="habit-info">
+                            <div class="habit-icon">🕌</div>
+                            <div class="habit-details">
+                                <h4>Durood Sharif</h4>
+                                <p>Sending blessings</p>
+                            </div>
+                        </div>
+                        <div class="habit-status">Not Set</div>
+                    </div>
+                    <div class="habit-row" data-habit="istighfar" onclick="openTodayHabitModal('istighfar', 'Istighfar')">
+                        <div class="habit-info">
+                            <div class="habit-icon">📿</div>
+                            <div class="habit-details">
+                                <h4>Istighfar</h4>
+                                <p>Seeking forgiveness</p>
+                            </div>
+                        </div>
+                        <div class="habit-status">Not Set</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="monthly-view">
+                <div class="month-navigation">
+                    <button class="nav-arrow" id="prevMonth" onclick="changeMonth(-1)">‹</button>
+                    <h3 class="month-title" id="monthTitle">July 2025</h3>
+                    <button class="nav-arrow" id="nextMonth" onclick="changeMonth(1)">›</button>
+                </div>
+                <div class="calendar-container">
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Calendar will be generated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                Build consistent Islamic habits for spiritual growth
+                <br>
+                <button onclick="showDataInfo()" class="data-management-button">
+                    Data Management
+                </button>
+                <button onclick="logout()" class="logout-button">Logout</button>
+            </div>
         </div>
     </div>
 
@@ -792,9 +1051,9 @@
                 <div style="margin: 20px 0; display: flex; flex-direction: column; gap: 12px;">
                     <button onclick="exportDataAsPDF()" class="pdf-export-button" id="pdfExportBtn">
                         <div class="loading-spinner" id="pdfSpinner"></div>
-                        <span id="pdfBtnText">Export as PDF Report</span>
+                        <span id="pdfBtnText">📄 Export as PDF Report</span>
                     </button>
-                    <button onclick="clearData()" class="pdf-export-button" style="background: linear-gradient(135deg, #FF4444, #CC3333); border-color: #FF4444; color: white;">
+                    <button onclick="clearData()" class="option-button" style="background: #FF4444; border-color: #FF4444; color: white;">
                         🗑️ Clear All Data
                     </button>
                 </div>
@@ -802,13 +1061,39 @@
         </div>
     </div>
 
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Create New Profile</h2>
+                <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            </div>
+            <div class="signup-form">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-input" id="signupName" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Access Code</label>
+                    <input type="text" class="form-input" id="signupCode" placeholder="Create an access code">
+                </div>
+                <button class="login-button" onclick="createProfile()">Create Profile</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Data storage
+        // Global variables
+        let currentUser = null;
+        let currentUserProfile = null;
+        let currentFirebaseUser = null;
         let habitData = {};
         let currentDisplayMonth = new Date().getMonth() + 1;
         let currentDisplayYear = new Date().getFullYear();
         let currentHabit = null;
         let currentDate = null;
+        let dataListener = null;
+        let isOfflineMode = false;
 
         const baseHabits = ['yasin', 'waqiah', 'mulk', 'durood', 'istighfar'];
         const habitNames = {
@@ -857,6 +1142,19 @@
         let deferredPrompt;
         let installPromptShown = false;
 
+        // Make functions available globally
+        window.updateCloudStatus = function(status, message) {
+            const cloudStatus = document.getElementById('cloudStatus');
+            if (cloudStatus) {
+                cloudStatus.className = `cloud-status ${status}`;
+                cloudStatus.textContent = message;
+            }
+        };
+
+        window.currentUserProfile = null;
+        window.loadCloudData = loadCloudData;
+
+        // PWA functionality
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
@@ -869,51 +1167,9 @@
         });
 
         window.addEventListener('appinstalled', () => {
-            console.log('PWA was installed');
             hideInstallPrompt();
             localStorage.setItem('installPromptDismissed', 'true');
         });
-
-        function showInstallPrompt() {
-            if (window.matchMedia('(display-mode: standalone)').matches) {
-                return;
-            }
-            
-            installPromptShown = true;
-            document.getElementById('installPrompt').classList.add('show');
-        }
-
-        function installApp() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the install prompt');
-                    } else {
-                        console.log('User dismissed the install prompt');
-                    }
-                    deferredPrompt = null;
-                });
-            } else {
-                if (navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('iPad')) {
-                    alert('To install:\n1. Tap the Share button\n2. Select "Add to Home Screen"');
-                } else {
-                    alert('To install:\nLook for the "Install" button in your browser\'s address bar');
-                }
-            }
-            
-            hideInstallPrompt();
-        }
-
-        function dismissInstall() {
-            hideInstallPrompt();
-            localStorage.setItem('installPromptDismissed', 'true');
-        }
-
-        function hideInstallPrompt() {
-            document.getElementById('installPrompt').classList.remove('show');
-        }
 
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
@@ -960,14 +1216,314 @@
             });
         }
 
-        // Initialize app
-        function init() {
-            updateCurrentDate();
-            loadData();
+        function showInstallPrompt() {
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                return;
+            }
+            
+            installPromptShown = true;
+            document.getElementById('installPrompt').classList.add('show');
+        }
+
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                if (navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('iPad')) {
+                    alert('To install:\n1. Tap the Share button\n2. Select "Add to Home Screen"');
+                } else {
+                    alert('To install:\nLook for the "Install" button in your browser\'s address bar');
+                }
+            }
+            
+            hideInstallPrompt();
+        }
+
+        function dismissInstall() {
+            hideInstallPrompt();
+            localStorage.setItem('installPromptDismissed', 'true');
+        }
+
+        function hideInstallPrompt() {
+            document.getElementById('installPrompt').classList.remove('show');
+        }
+
+        // Login/Signup functions
+        async function login() {
+            const accessCode = document.getElementById('accessCode').value.trim();
+            
+            if (!accessCode) {
+                showError('Please enter an access code');
+                return;
+            }
+            
+            try {
+                if (window.firebaseReady && window.firebase && window.firebaseModules) {
+                    await loginWithFirebase(accessCode);
+                } else {
+                    await loginOffline(accessCode);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showError('Login failed: ' + error.message);
+            }
+        }
+
+        async function loginWithFirebase(accessCode) {
+            const { signInAnonymously } = window.firebaseModules;
+            const { auth } = window.firebase;
+            
+            const userCredential = await signInAnonymously(auth);
+            currentFirebaseUser = userCredential.user;
+            
+            const profiles = await checkProfiles(accessCode);
+            
+            if (!profiles || !profiles[accessCode]) {
+                showError('Invalid access code');
+                await auth.signOut();
+                return;
+            }
+            
+            currentUserProfile = {
+                accessCode: accessCode,
+                name: profiles[accessCode].name
+            };
+            
+            showMainApp();
+            window.updateCloudStatus('connected', '☁️ Cloud Sync Active');
+        }
+
+        async function loginOffline(accessCode) {
+            const offlineProfiles = JSON.parse(localStorage.getItem('offlineProfiles') || '{}');
+            const defaultProfiles = {
+                'P455word': { name: 'Sam' }
+            };
+            
+            const allProfiles = { ...defaultProfiles, ...offlineProfiles };
+            
+            if (allProfiles[accessCode]) {
+                currentUserProfile = {
+                    accessCode: accessCode,
+                    name: allProfiles[accessCode].name
+                };
+                
+                showMainApp();
+                window.updateCloudStatus('offline', '📱 Offline Mode');
+            } else {
+                showError('Invalid access code');
+            }
+        }
+
+        async function checkProfiles(accessCode) {
+            try {
+                const { doc, getDoc, setDoc } = window.firebaseModules;
+                const { db } = window.firebase;
+                
+                const profilesDoc = await getDoc(doc(db, 'config', 'profiles'));
+                
+                if (!profilesDoc.exists()) {
+                    const defaultProfiles = {
+                        'P455word': { name: 'Sam', created: new Date().toISOString() }
+                    };
+                    
+                    await setDoc(doc(db, 'config', 'profiles'), {
+                        profiles: defaultProfiles,
+                        lastUpdated: new Date().toISOString()
+                    });
+                    
+                    return defaultProfiles;
+                }
+                
+                return profilesDoc.data().profiles || {};
+            } catch (error) {
+                console.error('Error checking profiles:', error);
+                throw error;
+            }
+        }
+
+        function showSignupModal() {
+            document.getElementById('signupModal').style.display = 'block';
+            document.getElementById('signupName').value = '';
+            document.getElementById('signupCode').value = '';
+        }
+
+        async function createProfile() {
+            const name = document.getElementById('signupName').value.trim();
+            const accessCode = document.getElementById('signupCode').value.trim();
+            
+            if (!name || !accessCode) {
+                showError('Please fill in all fields');
+                return;
+            }
+            
+            if (accessCode.length < 6) {
+                showError('Access code must be at least 6 characters');
+                return;
+            }
+            
+            try {
+                if (window.firebaseReady && window.firebase && window.firebaseModules) {
+                    await createProfileWithFirebase(name, accessCode);
+                } else {
+                    await createProfileOffline(name, accessCode);
+                }
+            } catch (error) {
+                console.error('Error creating profile:', error);
+                showError('Failed to create profile: ' + error.message);
+            }
+        }
+
+        async function createProfileWithFirebase(name, accessCode) {
+            const { signInAnonymously } = window.firebaseModules;
+            const { auth } = window.firebase;
+            
+            if (!currentFirebaseUser) {
+                await signInAnonymously(auth);
+            }
+            
+            const { doc, getDoc, setDoc } = window.firebaseModules;
+            const { db } = window.firebase;
+            
+            const profilesDoc = await getDoc(doc(db, 'config', 'profiles'));
+            const existingProfiles = profilesDoc.exists() ? profilesDoc.data().profiles || {} : {};
+            
+            if (existingProfiles[accessCode]) {
+                showError('Access code already exists. Please choose a different one.');
+                return;
+            }
+            
+            existingProfiles[accessCode] = {
+                name: name,
+                created: new Date().toISOString()
+            };
+            
+            await setDoc(doc(db, 'config', 'profiles'), {
+                profiles: existingProfiles,
+                lastUpdated: new Date().toISOString()
+            });
+            
+            closeModal('signupModal');
+            showSuccess(`Profile created! Your access code is: ${accessCode}`);
+        }
+
+        async function createProfileOffline(name, accessCode) {
+            const offlineProfiles = JSON.parse(localStorage.getItem('offlineProfiles') || '{}');
+            
+            if (offlineProfiles[accessCode]) {
+                showError('Access code already exists. Please choose a different one.');
+                return;
+            }
+            
+            offlineProfiles[accessCode] = {
+                name: name,
+                created: new Date().toISOString()
+            };
+            
+            localStorage.setItem('offlineProfiles', JSON.stringify(offlineProfiles));
+            closeModal('signupModal');
+            showSuccess(`Profile created! Your access code is: ${accessCode} (offline mode)`);
+        }
+
+        function showMainApp() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            
+            updateUserDisplay();
+            loadUserData();
             updateTodaysHabits();
             updateStats();
             generateCalendar();
             checkFridayHabit();
+        }
+
+        function updateUserDisplay() {
+            const display = document.getElementById('userInfo');
+            
+            if (currentUserProfile) {
+                const userName = currentUserProfile.name || 'User';
+                display.textContent = `📱 ${userName}'s Habit Tracker`;
+                display.style.display = 'block';
+            } else {
+                display.style.display = 'none';
+            }
+        }
+
+        async function loadUserData() {
+            if (!currentUserProfile) return;
+            
+            habitData = JSON.parse(localStorage.getItem(`habitTracker_${currentUserProfile.accessCode}`) || '{}');
+            
+            if (window.firebaseReady && window.firebase && window.firebaseModules && currentFirebaseUser) {
+                await loadCloudData();
+            }
+            
+            updateTodaysHabits();
+            updateStats();
+            generateCalendar();
+        }
+
+        async function loadCloudData() {
+            if (!currentUserProfile || !window.firebase || !window.firebaseModules) return;
+            
+            try {
+                const { doc, onSnapshot } = window.firebaseModules;
+                const { db } = window.firebase;
+                
+                if (dataListener) {
+                    dataListener();
+                }
+                
+                dataListener = onSnapshot(doc(db, 'habitData', currentUserProfile.accessCode), (doc) => {
+                    if (doc.exists()) {
+                        const cloudData = doc.data() || {};
+                        habitData = { ...habitData, ...cloudData };
+                        
+                        localStorage.setItem(`habitTracker_${currentUserProfile.accessCode}`, JSON.stringify(habitData));
+                    }
+                    updateTodaysHabits();
+                    updateStats();
+                    generateCalendar();
+                }, (error) => {
+                    console.error('Error listening to cloud data:', error);
+                });
+                
+            } catch (error) {
+                console.error('Error loading cloud data:', error);
+            }
+        }
+
+        async function saveUserData() {
+            if (!currentUserProfile) return;
+            
+            localStorage.setItem(`habitTracker_${currentUserProfile.accessCode}`, JSON.stringify(habitData));
+            
+            if (window.firebaseReady && window.firebase && window.firebaseModules && currentFirebaseUser) {
+                try {
+                    const { doc, setDoc } = window.firebaseModules;
+                    const { db } = window.firebase;
+                    
+                    await setDoc(doc(db, 'habitData', currentUserProfile.accessCode), habitData);
+                } catch (error) {
+                    console.error('Error saving to cloud:', error);
+                }
+            }
+        }
+
+        // Initialize app
+        function init() {
+            updateCurrentDate();
+            
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('mainContent').style.display = 'none';
         }
 
         function updateCurrentDate() {
@@ -978,7 +1534,10 @@
                 day: 'numeric',
                 year: 'numeric'
             });
-            document.getElementById('currentDate').textContent = dateStr;
+            const dateElement = document.getElementById('currentDate');
+            if (dateElement) {
+                dateElement.textContent = dateStr;
+            }
         }
 
         function getDateKey(date = new Date()) {
@@ -1064,9 +1623,15 @@
             document.getElementById('failedCount').textContent = failedCount;
         }
 
+        function openTodayHabitModal(habit, habitName) {
+            currentHabit = habit;
+            currentDate = null; // For today's habits, use current date
+            openHabitModal(habit, habitName);
+        }
+
         function openHabitModal(habit, habitName) {
             currentHabit = habit;
-            currentDate = null;
+            // Don't reset currentDate here - let calling function set it
             document.getElementById('modalTitle').textContent = habitName;
             
             const modalOptions = document.getElementById('modalOptions');
@@ -1094,7 +1659,7 @@
             document.getElementById('habitModal').style.display = 'block';
         }
 
-        function setHabitStatus(status) {
+        async function setHabitStatus(status) {
             if (!currentHabit) return;
 
             const dateKey = currentDate || getDateKey();
@@ -1104,7 +1669,7 @@
             }
 
             habitData[dateKey][currentHabit] = status;
-            saveData();
+            await saveUserData();
             updateTodaysHabits();
             updateStats();
             generateCalendar();
@@ -1118,7 +1683,7 @@
             }
         }
 
-        function clearHabitStatus() {
+        async function clearHabitStatus() {
             if (!currentHabit) return;
 
             const dateKey = currentDate || getDateKey();
@@ -1130,7 +1695,7 @@
                     delete habitData[dateKey];
                 }
                 
-                saveData();
+                await saveUserData();
                 updateTodaysHabits();
                 updateStats();
                 generateCalendar();
@@ -1211,6 +1776,8 @@
         function generateCalendar() {
             const grid = document.getElementById('calendarGrid');
             const monthTitle = document.getElementById('monthTitle');
+            
+            if (!grid || !monthTitle) return;
             
             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                             'July', 'August', 'September', 'October', 'November', 'December'];
@@ -1402,16 +1969,10 @@
         }
 
         function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function loadData() {
-            const stored = localStorage.getItem('habitTracker');
-            habitData = stored ? JSON.parse(stored) : {};
-        }
-
-        function saveData() {
-            localStorage.setItem('habitTracker', JSON.stringify(habitData));
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
         }
 
         function showDataInfo() {
@@ -1438,7 +1999,8 @@
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF();
                 
-                const currentDate = new Date().toLocaleDateString('en-US', {
+                const userName = currentUserProfile?.name || 'User';
+                const currentDateStr = new Date().toLocaleDateString('en-US', {
                     weekday: 'long',
                     year: 'numeric',
                     month: 'long',
@@ -1482,7 +2044,8 @@
                 });
 
                 generateHabitPDF(doc, {
-                    currentDate,
+                    userName,
+                    currentDate: currentDateStr,
                     totalHabits,
                     completeCount,
                     partialCount,
@@ -1491,7 +2054,7 @@
                     dailyRecords
                 });
                 
-                const fileName = `habit_report_${new Date().toISOString().split('T')[0]}.pdf`;
+                const fileName = `habit_report_${userName.toLowerCase().replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
                 doc.save(fileName);
                 
                 setTimeout(() => {
@@ -1514,252 +2077,317 @@
         }
 
         function generateHabitPDF(doc, data) {
-    doc.setFillColor(24, 24, 24);
-    doc.rect(0, 0, 210, 40, 'F');
-    
-    doc.setFillColor(16, 163, 127);
-    doc.rect(0, 0, 210, 3, 'F');
-    
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(16);
-    doc.setFont(undefined, 'bold');
-    doc.text('ISLAMIC HABIT TRACKER REPORT', 105, 15, { align: 'center' });
-    
-    doc.setFontSize(12);
-    doc.setTextColor(230, 230, 230);
-    doc.text('Your Spiritual Journey Progress', 105, 22, { align: 'center' });
-    
-    doc.setTextColor(184, 184, 184);
-    doc.setFontSize(9);
-    doc.setFont(undefined, 'normal');
-    doc.text(`Generated on ${data.currentDate}`, 105, 28, { align: 'center' });
-    doc.text('Yasin • Waqiah • Mulk • Durood • Istighfar', 105, 34, { align: 'center' });
-
-    let yPos = 50;
-
-    doc.setTextColor(31, 41, 55);
-    doc.setFontSize(14);
-    doc.setFont(undefined, 'bold');
-    doc.text('Habit Statistics Overview', 105, yPos, { align: 'center' });
-
-    yPos += 10;
-
-    const statBoxWidth = 42;
-    const statBoxHeight = 25;
-    const startX = 15;
-    const gap = 5;
-
-    const stats = [
-        { label: 'Total', value: data.totalHabits, color: [99, 102, 241] },
-        { label: 'Complete', value: data.completeCount, color: [16, 163, 127] },
-        { label: 'Partial', value: data.partialCount, color: [255, 140, 0] },
-        { label: 'Incomplete', value: data.failedCount, color: [239, 68, 68] }
-    ];
-
-    stats.forEach((stat, index) => {
-        const x = startX + (statBoxWidth + gap) * index;
-        
-        doc.setFillColor(248, 250, 252);
-        doc.roundedRect(x, yPos, statBoxWidth, statBoxHeight, 3, 3, 'F');
-        
-        doc.setDrawColor(226, 232, 240);
-        doc.setLineWidth(0.5);
-        doc.roundedRect(x, yPos, statBoxWidth, statBoxHeight, 3, 3, 'S');
-        
-        doc.setTextColor(stat.color[0], stat.color[1], stat.color[2]);
-        doc.setFontSize(18);
-        doc.setFont(undefined, 'bold');
-        doc.text(stat.value.toString(), x + statBoxWidth / 2, yPos + 12, { align: 'center' });
-        
-        doc.setTextColor(100, 116, 139);
-        doc.setFontSize(9);
-        doc.setFont(undefined, 'normal');
-        doc.text(stat.label, x + statBoxWidth / 2, yPos + 20, { align: 'center' });
-    });
-
-    yPos += 35;
-
-    const completionRate = data.totalHabits > 0 ? Math.round(((data.completeCount + data.partialCount * 0.5) / data.totalHabits) * 100) : 0;
-    
-    doc.setTextColor(31, 41, 55);
-    doc.setFontSize(12);
-    doc.setFont(undefined, 'bold');
-    doc.text('Overall Progress Rate', 105, yPos, { align: 'center' });
-    
-    yPos += 8;
-    
-    const barWidth = 160;
-    const barHeight = 8;
-    const barX = (210 - barWidth) / 2;
-    
-    doc.setFillColor(229, 231, 235);
-    doc.roundedRect(barX, yPos, barWidth, barHeight, 4, 4, 'F');
-    
-    const progressWidth = (barWidth * completionRate) / 100;
-    doc.setFillColor(16, 163, 127);
-    doc.roundedRect(barX, yPos, progressWidth, barHeight, 4, 4, 'F');
-    
-    doc.setTextColor(31, 41, 55);
-    doc.setFontSize(11);
-    doc.setFont(undefined, 'bold');
-    doc.text(`${completionRate}% Progress`, 105, yPos + 15, { align: 'center' });
-
-    yPos += 25;
-
-    if (Object.keys(data.monthlyStats).length > 0) {
-        doc.setTextColor(31, 41, 55);
-        doc.setFontSize(12);
-        doc.setFont(undefined, 'bold');
-        doc.text('Monthly Summary', 15, yPos);
-
-        yPos += 8;
-
-        const monthlyData = Object.entries(data.monthlyStats)
-            .sort()
-            .reverse()
-            .slice(0, 6)
-            .map(([month, stats]) => {
-                const monthName = new Date(month + '-01').toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
-                const monthTotal = stats.complete + stats.partial + stats.failed;
-                const monthProgress = monthTotal > 0 ? Math.round(((stats.complete + stats.partial * 0.5) / monthTotal) * 100) : 0;
-                
-                return [monthName, stats.complete.toString(), stats.partial.toString(), stats.failed.toString(), `${monthProgress}%`];
-            });
-
-        if (monthlyData.length > 0) {
-            doc.autoTable({
-                startY: yPos,
-                head: [['Month', 'Complete', 'Partial', 'Incomplete', 'Progress']],
-                body: monthlyData,
-                theme: 'striped',
-                headStyles: { 
-                    fillColor: [16, 163, 127], 
-                    textColor: [255, 255, 255],
-                    fontSize: 10,
-                    fontStyle: 'bold'
-                },
-                bodyStyles: { 
-                    fontSize: 9,
-                    cellPadding: 4
-                },
-                columnStyles: {
-                    0: { cellWidth: 50 },
-                    1: { cellWidth: 32, halign: 'center', fillColor: [240, 253, 244] },
-                    2: { cellWidth: 32, halign: 'center', fillColor: [255, 251, 235] },
-                    3: { cellWidth: 32, halign: 'center', fillColor: [254, 242, 242] },
-                    4: { cellWidth: 34, halign: 'center', fontStyle: 'bold' }
-                },
-                margin: { left: 15, right: 15 },
-                tableWidth: 180
-            });
+            doc.setFillColor(24, 24, 24);
+            doc.rect(0, 0, 210, 40, 'F');
             
-            yPos = doc.lastAutoTable.finalY + 15;
-        }
-    }
-
-    if (data.dailyRecords.length > 0) {
-        if (yPos > 200) {
-            doc.addPage();
-            yPos = 20;
-        }
-
-        doc.setTextColor(31, 41, 55);
-        doc.setFontSize(12);
-        doc.setFont(undefined, 'bold');
-        doc.text('Recent Habit Records', 15, yPos);
-
-        yPos += 8;
-
-        const recentRecords = data.dailyRecords
-            .sort((a, b) => new Date(b.date) - new Date(a.date))
-            .slice(0, 15);
-
-        recentRecords.forEach(record => {
-            const dateObj = new Date(record.date);
-            const dateStr = dateObj.toLocaleDateString('en-US', { 
-                weekday: 'short',
-                month: 'short', 
-                day: 'numeric' 
-            });
-
-            doc.setFillColor(248, 250, 252);
-            doc.rect(15, yPos, 180, 8, 'F');
-            doc.setTextColor(75, 85, 99);
-            doc.setFontSize(9);
+            doc.setFillColor(16, 163, 127);
+            doc.rect(0, 0, 210, 3, 'F');
+            
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(16);
             doc.setFont(undefined, 'bold');
-            doc.text(dateStr, 18, yPos + 5.5);
+            doc.text('ISLAMIC HABIT TRACKER REPORT', 105, 15, { align: 'center' });
+            
+            doc.setFontSize(12);
+            doc.setTextColor(230, 230, 230);
+            doc.text(`${data.userName}'s Spiritual Journey Progress`, 105, 22, { align: 'center' });
+            
+            doc.setTextColor(184, 184, 184);
+            doc.setFontSize(9);
+            doc.setFont(undefined, 'normal');
+            doc.text(`Generated on ${data.currentDate}`, 105, 28, { align: 'center' });
+            doc.text('Yasin • Waqiah • Mulk • Durood • Istighfar', 105, 34, { align: 'center' });
+
+            let yPos = 50;
+
+            doc.setTextColor(31, 41, 55);
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Habit Statistics Overview', 105, yPos, { align: 'center' });
 
             yPos += 10;
 
-            const habitStatusText = record.habits.map(h => {
-                const icon = h.status === 'complete' ? 'DONE' : h.status === 'partial' ? 'PART' : 'SKIP';
-                const habitName = habitNames[h.habit];
-                return `${icon}: ${habitName}`;
-            }).join('  |  ');
+            const statBoxWidth = 42;
+            const statBoxHeight = 25;
+            const startX = 15;
+            const gap = 5;
 
-            doc.setTextColor(100, 116, 139);
-            doc.setFontSize(8);
-            doc.setFont(undefined, 'normal');
-            const wrappedText = doc.splitTextToSize(habitStatusText, 170);
-            doc.text(wrappedText, 18, yPos);
+            const stats = [
+                { label: 'Total', value: data.totalHabits, color: [99, 102, 241] },
+                { label: 'Complete', value: data.completeCount, color: [16, 163, 127] },
+                { label: 'Partial', value: data.partialCount, color: [255, 140, 0] },
+                { label: 'Incomplete', value: data.failedCount, color: [239, 68, 68] }
+            ];
+
+            stats.forEach((stat, index) => {
+                const x = startX + (statBoxWidth + gap) * index;
+                
+                doc.setFillColor(248, 250, 252);
+                doc.roundedRect(x, yPos, statBoxWidth, statBoxHeight, 3, 3, 'F');
+                
+                doc.setDrawColor(226, 232, 240);
+                doc.setLineWidth(0.5);
+                doc.roundedRect(x, yPos, statBoxWidth, statBoxHeight, 3, 3, 'S');
+                
+                doc.setTextColor(stat.color[0], stat.color[1], stat.color[2]);
+                doc.setFontSize(18);
+                doc.setFont(undefined, 'bold');
+                doc.text(stat.value.toString(), x + statBoxWidth / 2, yPos + 12, { align: 'center' });
+                
+                doc.setTextColor(100, 116, 139);
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'normal');
+                doc.text(stat.label, x + statBoxWidth / 2, yPos + 20, { align: 'center' });
+            });
+
+            yPos += 35;
+
+            const completionRate = data.totalHabits > 0 ? Math.round(((data.completeCount + data.partialCount * 0.5) / data.totalHabits) * 100) : 0;
             
-            yPos += wrappedText.length * 4 + 3;
+            doc.setTextColor(31, 41, 55);
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            doc.text('Overall Progress Rate', 105, yPos, { align: 'center' });
+            
+            yPos += 8;
+            
+            const barWidth = 160;
+            const barHeight = 8;
+            const barX = (210 - barWidth) / 2;
+            
+            doc.setFillColor(229, 231, 235);
+            doc.roundedRect(barX, yPos, barWidth, barHeight, 4, 4, 'F');
+            
+            const progressWidth = (barWidth * completionRate) / 100;
+            doc.setFillColor(16, 163, 127);
+            doc.roundedRect(barX, yPos, progressWidth, barHeight, 4, 4, 'F');
+            
+            doc.setTextColor(31, 41, 55);
+            doc.setFontSize(11);
+            doc.setFont(undefined, 'bold');
+            doc.text(`${completionRate}% Progress`, 105, yPos + 15, { align: 'center' });
 
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
+            yPos += 25;
+
+            if (Object.keys(data.monthlyStats).length > 0) {
+                doc.setTextColor(31, 41, 55);
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text('Monthly Summary', 15, yPos);
+
+                yPos += 8;
+
+                const monthlyData = Object.entries(data.monthlyStats)
+                    .sort()
+                    .reverse()
+                    .slice(0, 6)
+                    .map(([month, stats]) => {
+                        const monthName = new Date(month + '-01').toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+                        const monthTotal = stats.complete + stats.partial + stats.failed;
+                        const monthProgress = monthTotal > 0 ? Math.round(((stats.complete + stats.partial * 0.5) / monthTotal) * 100) : 0;
+                        
+                        return [monthName, stats.complete.toString(), stats.partial.toString(), stats.failed.toString(), `${monthProgress}%`];
+                    });
+
+                if (monthlyData.length > 0) {
+                    doc.autoTable({
+                        startY: yPos,
+                        head: [['Month', 'Complete', 'Partial', 'Incomplete', 'Progress']],
+                        body: monthlyData,
+                        theme: 'striped',
+                        headStyles: { 
+                            fillColor: [16, 163, 127], 
+                            textColor: [255, 255, 255],
+                            fontSize: 10,
+                            fontStyle: 'bold'
+                        },
+                        bodyStyles: { 
+                            fontSize: 9,
+                            cellPadding: 4
+                        },
+                        columnStyles: {
+                            0: { cellWidth: 50 },
+                            1: { cellWidth: 32, halign: 'center', fillColor: [240, 253, 244] },
+                            2: { cellWidth: 32, halign: 'center', fillColor: [255, 251, 235] },
+                            3: { cellWidth: 32, halign: 'center', fillColor: [254, 242, 242] },
+                            4: { cellWidth: 34, halign: 'center', fontStyle: 'bold' }
+                        },
+                        margin: { left: 15, right: 15 },
+                        tableWidth: 180
+                    });
+                    
+                    yPos = doc.lastAutoTable.finalY + 15;
+                }
+            }
+
+            if (data.dailyRecords.length > 0) {
+                if (yPos > 200) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+
+                doc.setTextColor(31, 41, 55);
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text('Recent Habit Records', 15, yPos);
+
+                yPos += 8;
+
+                const recentRecords = data.dailyRecords
+                    .sort((a, b) => new Date(b.date) - new Date(a.date))
+                    .slice(0, 15);
+
+                recentRecords.forEach(record => {
+                    const dateObj = new Date(record.date);
+                    const dateStr = dateObj.toLocaleDateString('en-US', { 
+                        weekday: 'short',
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+
+                    doc.setFillColor(248, 250, 252);
+                    doc.rect(15, yPos, 180, 8, 'F');
+                    doc.setTextColor(75, 85, 99);
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(dateStr, 18, yPos + 5.5);
+
+                    yPos += 10;
+
+                    const habitStatusText = record.habits.map(h => {
+                        const icon = h.status === 'complete' ? 'DONE' : h.status === 'partial' ? 'PART' : 'SKIP';
+                        const habitName = habitNames[h.habit];
+                        return `${icon}: ${habitName}`;
+                    }).join('  |  ');
+
+                    doc.setTextColor(100, 116, 139);
+                    doc.setFontSize(8);
+                    doc.setFont(undefined, 'normal');
+                    const wrappedText = doc.splitTextToSize(habitStatusText, 170);
+                    doc.text(wrappedText, 18, yPos);
+                    
+                    yPos += wrappedText.length * 4 + 3;
+
+                    if (yPos > 250) {
+                        doc.addPage();
+                        yPos = 20;
+                    }
+                });
+            }
+
+            // Footer
+            const pageCount = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= pageCount; i++) {
+                doc.setPage(i);
+                doc.setTextColor(107, 114, 128);
+                doc.setFontSize(8);
+                doc.setFont(undefined, 'normal');
+                doc.text('Generated by Islamic Habit Tracker App', 105, 285, { align: 'center' });
+                doc.text('May Allah bless your journey towards spiritual excellence.', 105, 290, { align: 'center' });
+            }
+        }
+
+        function clearData() {
+            if (confirm('Are you sure you want to clear ALL your habit data? This cannot be undone.')) {
+                if (confirm('This will permanently delete all your habit records. Continue?')) {
+                    if (currentUserProfile) {
+                        localStorage.removeItem(`habitTracker_${currentUserProfile.accessCode}`);
+                    }
+                    
+                    currentUser = null;
+                    currentUserProfile = null;
+                    habitData = {};
+                    
+                    closeModal('dataModal');
+                    location.reload();
+                }
+            }
+        }
+
+        async function logout() {
+            try {
+                if (dataListener) {
+                    dataListener();
+                    dataListener = null;
+                }
+                
+                if (window.firebase && window.firebase.auth && currentFirebaseUser) {
+                    await window.firebase.auth.signOut();
+                }
+                
+                currentUser = null;
+                currentUserProfile = null;
+                currentFirebaseUser = null;
+                habitData = {};
+                
+                document.getElementById('mainContent').style.display = 'none';
+                document.getElementById('loginSection').style.display = 'block';
+                document.getElementById('accessCode').value = '';
+                
+                window.updateCloudStatus('offline', '📱 Offline Mode');
+                
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.style.display = 'block';
+                setTimeout(() => {
+                    errorEl.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        function showSuccess(message) {
+            const successEl = document.getElementById('successMessage');
+            if (successEl) {
+                successEl.textContent = message;
+                successEl.style.display = 'block';
+                setTimeout(() => {
+                    successEl.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const modals = ['habitModal', 'dayModal', 'statsModal', 'dataModal', 'signupModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target === modal) {
+                    closeModal(modalId);
+                    if (modalId === 'habitModal') {
+                        setTimeout(() => {
+                            currentHabit = null;
+                            currentDate = null;
+                        }, 100);
+                    }
+                }
+            });
+        }
+
+        // Allow Enter key for login
+        document.addEventListener('DOMContentLoaded', function() {
+            const accessCodeInput = document.getElementById('accessCode');
+            if (accessCodeInput) {
+                accessCodeInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        login();
+                    }
+                });
             }
         });
-    }
 
-    // Footer
-    const pageCount = doc.internal.getNumberOfPages();
-    for (let i = 1; i <= pageCount; i++) {
-        doc.setPage(i);
-        doc.setTextColor(107, 114, 128);
-        doc.setFontSize(8);
-        doc.setFont(undefined, 'normal');
-        doc.text('Generated by Islamic Habit Tracker App', 105, 285, { align: 'center' });
-        doc.text('May Allah bless your journey towards spiritual excellence.', 105, 290, { align: 'center' });
-    }
-}
-
-function clearData() {
-    if (confirm('Are you sure you want to clear ALL your habit data? This cannot be undone.')) {
-        if (confirm('This will permanently delete all your habit records. Continue?')) {
-            localStorage.removeItem('habitTracker');
-            habitData = {};
-            closeModal('dataModal');
-            location.reload();
+        // Initialize app when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
         }
-    }
-}
-
-// Close modals when clicking outside
-window.onclick = function(event) {
-    const modals = ['habitModal', 'dayModal', 'statsModal', 'dataModal'];
-    modals.forEach(modalId => {
-        const modal = document.getElementById(modalId);
-        if (event.target === modal) {
-            closeModal(modalId);
-            if (modalId === 'habitModal') {
-                setTimeout(() => {
-                    currentHabit = null;
-                    currentDate = null;
-                }, 100);
-            }
-        }
-    });
-}
-
-// Initialize app when page loads
-document.addEventListener('DOMContentLoaded', init);
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-} else {
-    init();
-}
     </script>
 </body>
 </html>
