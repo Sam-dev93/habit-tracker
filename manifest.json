@@ -1,0 +1,51 @@
+{
+  "name": "⏱️ Islamic Habit Tracker",
+  "short_name": "⏱️ Habits",
+  "description": "Track your daily Islamic habits and spiritual practices with cloud sync",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#181818",
+  "theme_color": "#181818",
+  "orientation": "portrait",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "utilities", "religion", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "shortcuts": [
+    {
+      "name": "Today's Habits",
+      "short_name": "Today",
+      "description": "Track today's Islamic habits",
+      "url": "./index.html#today",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Monthly Progress",
+      "short_name": "Progress",
+      "description": "View monthly habit progress",
+      "url": "./index.html#progress",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Statistics",
+      "short_name": "Stats",
+      "description": "View habit statistics",
+      "url": "./index.html#stats",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
