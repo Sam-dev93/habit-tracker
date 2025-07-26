@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="⏱️ Habits">
+    <meta name="apple-mobile-web-app-title" content="Habits">
     <meta name="theme-color" content="#181818">
-    <title>⏱️ Habit Tracker</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Islamic Habit Tracker">
+    <meta name="msapplication-TileColor" content="#181818">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>⏱️ Islamic Habit Tracker</title>
     
     <!-- PWA Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAABHNCSVQICAgIfAhkiAAAA6NJREFUeJzt3UFOwzAQBdDGKE0TGlG1qqCCyqkKZ+hJ4Aw9ASdhJSG1QKOqTdMQO2LhPyGk75k9tmfGM2NnZhwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWDrOzMjMzMj8/Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+PhqKR8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx+vl/Lx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH7+X8vHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/1fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+Xy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/5fLx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH/+X8fAAAAADf0xhGUH3/0AAAAASUVORK5CYII=">
-    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon-192.png">
+    <link rel="mask-icon" href="icon-192.png" color="#181818">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
     
     <!-- Firebase SDK v10 -->
     <script type="module">
@@ -271,6 +280,26 @@
             color: #E6E6E6;
             font-size: 14px;
             font-weight: 600;
+        }
+
+        /* PWA Status Indicator */
+        .pwa-status {
+            margin-top: 10px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .pwa-status.online {
+            background: rgba(16, 163, 127, 0.2);
+            color: #10A37F;
+        }
+
+        .pwa-status.offline {
+            background: rgba(255, 149, 0, 0.2);
+            color: #FF9500;
         }
 
         .stats-container {
@@ -773,6 +802,39 @@
             }
         }
 
+        /* Update notification */
+        .update-notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FF9500;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: none;
+            z-index: 2000;
+            font-size: 14px;
+            font-weight: 600;
+            animation: slideDown 0.3s ease;
+            cursor: pointer;
+        }
+
+        .update-notification.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateX(-50%) translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
         /* PDF specific button styling */
         .pdf-export-button {
             background: linear-gradient(135deg, #10A37F, #0D8B6F);
@@ -833,6 +895,10 @@
             .container {
                 padding-top: 40px;
             }
+            
+            .pwa-status {
+                display: none;
+            }
         }
 
         @media (display-mode: standalone) {
@@ -842,6 +908,10 @@
             
             .container {
                 padding-top: 40px;
+            }
+            
+            .pwa-status {
+                display: none;
             }
         }
     </style>
@@ -879,6 +949,7 @@
                 <h1 class="main-title">⏱️ Habit Tracker</h1>
                 <div class="current-date" id="currentDate">Friday, July 18, 2025</div>
                 <div class="user-info" id="userInfo"></div>
+                <div class="pwa-status offline" id="pwaStatus">📱 Loading...</div>
             </div>
 
             <div style="text-align: center; margin: 0 12px 12px;">
@@ -993,12 +1064,17 @@
     <!-- Install Prompt -->
     <div id="installPrompt" class="install-prompt">
         <div class="install-prompt-text">
-            ⏱️ Install Habit Tracker as an app for quick access!
+            ⏱️ Install Islamic Habit Tracker as an app for quick access!
         </div>
         <div class="install-buttons">
             <button class="install-btn" onclick="installApp()">Install</button>
             <button class="install-btn dismiss" onclick="dismissInstall()">Maybe Later</button>
         </div>
+    </div>
+
+    <!-- Update Notification -->
+    <div id="updateNotification" class="update-notification">
+        📱 New version available! Tap to update.
     </div>
 
     <!-- Habit Status Modal -->
@@ -1095,6 +1171,11 @@
         let dataListener = null;
         let isOfflineMode = false;
 
+        // PWA Variables
+        let deferredPrompt;
+        let installPromptShown = false;
+        let isOnline = navigator.onLine;
+
         const baseHabits = ['yasin', 'waqiah', 'mulk', 'durood', 'istighfar'];
         const habitNames = {
             'yasin': 'Surah Yasin',
@@ -1138,10 +1219,6 @@
             ]
         };
 
-        // PWA Install Prompt
-        let deferredPrompt;
-        let installPromptShown = false;
-
         // Make functions available globally
         window.updateCloudStatus = function(status, message) {
             const cloudStatus = document.getElementById('cloudStatus');
@@ -1154,7 +1231,19 @@
         window.currentUserProfile = null;
         window.loadCloudData = loadCloudData;
 
-        // PWA functionality
+        // PWA Functions
+        function updatePWAStatus() {
+            const statusEl = document.getElementById('pwaStatus');
+            if (navigator.onLine) {
+                statusEl.className = 'pwa-status online';
+                statusEl.textContent = '🌐 Online';
+            } else {
+                statusEl.className = 'pwa-status offline';
+                statusEl.textContent = '📱 Offline';
+            }
+        }
+
+        // PWA Install Prompt
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
@@ -1169,52 +1258,8 @@
         window.addEventListener('appinstalled', () => {
             hideInstallPrompt();
             localStorage.setItem('installPromptDismissed', 'true');
+            console.log('PWA was installed');
         });
-
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                const swCode = `
-                    const CACHE_NAME = 'habit-tracker-v1';
-                    const urlsToCache = [
-                        '/',
-                        '/index.html'
-                    ];
-
-                    self.addEventListener('install', function(event) {
-                        event.waitUntil(
-                            caches.open(CACHE_NAME)
-                                .then(function(cache) {
-                                    return cache.addAll(urlsToCache);
-                                })
-                        );
-                    });
-
-                    self.addEventListener('fetch', function(event) {
-                        event.respondWith(
-                            caches.match(event.request)
-                                .then(function(response) {
-                                    if (response) {
-                                        return response;
-                                    }
-                                    return fetch(event.request);
-                                })
-                        );
-                    });
-                `;
-
-                const blob = new Blob([swCode], { type: 'application/javascript' });
-                const swUrl = URL.createObjectURL(blob);
-
-                navigator.serviceWorker.register(swUrl)
-                    .then(function(registration) {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(function(err) {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
 
         function showInstallPrompt() {
             if (window.matchMedia('(display-mode: standalone)').matches) {
@@ -1239,9 +1284,11 @@
                 });
             } else {
                 if (navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('iPad')) {
-                    alert('To install:\n1. Tap the Share button\n2. Select "Add to Home Screen"');
+                    alert('To install on iOS:\n1. Tap the Share button (↗️)\n2. Select "Add to Home Screen"\n3. Tap "Add"');
+                } else if (navigator.userAgent.includes('Android')) {
+                    alert('To install on Android:\n1. Tap the menu (⋮) in your browser\n2. Select "Add to Home screen"\n3. Tap "Add"');
                 } else {
-                    alert('To install:\nLook for the "Install" button in your browser\'s address bar');
+                    alert('To install:\nLook for the "Install" button in your browser\'s address bar or menu');
                 }
             }
             
@@ -1257,6 +1304,88 @@
             document.getElementById('installPrompt').classList.remove('show');
         }
 
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                        
+                        // Check for updates periodically
+                        setInterval(() => {
+                            registration.update();
+                        }, 60000); // Check every minute
+                        
+                        // Handle updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    showUpdateNotification();
+                                }
+                            });
+                        });
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        function showUpdateNotification() {
+            const notification = document.getElementById('updateNotification');
+            notification.classList.add('show');
+            
+            notification.addEventListener('click', () => {
+                if (navigator.serviceWorker.controller) {
+                    navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+                    window.location.reload();
+                }
+            });
+            
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 10000);
+        }
+
+        // Handle online/offline status
+        window.addEventListener('online', () => {
+            updatePWAStatus();
+            console.log('App is online');
+        });
+
+        window.addEventListener('offline', () => {
+            updatePWAStatus();
+            console.log('App is offline');
+        });
+
+        // Handle URL shortcuts
+        function handleUrlShortcuts() {
+            const hash = window.location.hash;
+            if (hash === '#today') {
+                // Scroll to today's habits
+                setTimeout(() => {
+                    document.querySelector('.today-habits').scrollIntoView({ behavior: 'smooth' });
+                }, 500);
+            } else if (hash === '#progress') {
+                // Scroll to monthly progress
+                setTimeout(() => {
+                    document.querySelector('.stats-container').scrollIntoView({ behavior: 'smooth' });
+                }, 500);
+            } else if (hash === '#stats') {
+                // Show stats modal
+                setTimeout(() => {
+                    openStatsModal('complete');
+                }, 500);
+            }
+            // Clear the hash
+            if (hash) {
+                window.history.replaceState(null, null, window.location.pathname);
+            }
+        }
+
+        // [Rest of the JavaScript remains the same as in your original file...]
+        
         // Login/Signup functions
         async function login() {
             const accessCode = document.getElementById('accessCode').value.trim();
@@ -1438,11 +1567,13 @@
             document.getElementById('mainContent').style.display = 'block';
             
             updateUserDisplay();
+            updatePWAStatus();
             loadUserData();
             updateTodaysHabits();
             updateStats();
             generateCalendar();
             checkFridayHabit();
+            handleUrlShortcuts();
         }
 
         function updateUserDisplay() {
